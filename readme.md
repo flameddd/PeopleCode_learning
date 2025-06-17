@@ -2868,3 +2868,110 @@ derived + prompt table 的範例
 ![alt text](6.5_event_07.png)  
 ![alt text](6.5_event_08.png)  
 ![alt text](6.5_event_09.png)  
+
+--------
+
+## 7.1 Using PeopleCode Built-In Functions
+
+Message Catalog
+- 用公司抓幾張圖
+
+
+|  | 用途 | 回傳/顯示形式 | 
+| --- | --- | --- | 
+| `MsgGet()` | 取得並回傳 Message Catalog 文字 | 回傳字串 |
+| `MsgGetText()` | 取得並回傳 Message Catalog 文字，不顯示 set 跟 num | 回傳字串 |
+| `MessageBox()` | 直接顯示對話框，內容可來自 `MsgGet` 或純文字 | 視窗 |
+
+![alt text](7.1_event_01.png)  
+![alt text](7.1_event_02.png)  
+![alt text](7.1_event_03.png)  
+
+
+
+|  | 用途 | 回傳 | 參數格式 | 常見觸發事件 | 情境 |  注意  |
+| --- | --- | --- | --- | --- | --- | --- |
+| `All()` | 檢查是否全部都有值 | Boolean | `All(Field1, Field2, …)` | 任意，常在 `SaveEdit`、`FieldEdit` | 確保必填欄位都有值 | 只判斷「非空」；對數字欄位，0 被視為「有值」 |
+| `None()` | 檢查是否全部為空 | Boolean | `None(Field1, Field2, …)` | 任意，常在 `SaveEdit`、`FieldEdit` | 檢查「不可全空」或「全部空才允許」 |   |
+| `PriorValue()` | 取得欄位在被改動前的值 | 欄位相同 | `PriorValue(FieldName)` | 只能 `FieldEdit`、`FieldChange` | 新值 vs. 舊值 | 在其他 event 呼叫會回傳「目前值」|
+
+
+
+|  | True 的條件 | 用途 | 
+| --- | --- | --- | 
+| `AllOrNone()` | 全部都有值 or 全部都沒值 | 要嘛一次填完、要嘛全部空 | 
+| `OnlyOne()` | 只有 1 個欄位有值 | 單選輸入、排他性: E-mail、手機 二擇一 | 
+| `OnlyOneOrNone()` | 0 或 1 個欄位有值 | 若填寫則只能填一欄 |
+
+
+
+-------
+
+## 7.2 Explaining String Functions
+
+![alt text](7.2_event_01.png)  
+![alt text](7.2_event_02.png)  
+![alt text](7.2_event_03.png)  
+![alt text](7.2_event_04.png)  
+![alt text](7.2_event_05.png)    
+
+|   | `AddToDate` | `AddToDateTime` |
+| --- |  --- |  --- | 
+| 主要用途 | 對 Date 做加減 | 對 DateTime 做加減  |
+| 語法 | ```AddToDate(&Date, &Years, &Months, &Days)``` | ```AddToDateTime(&DateTime, &Years, &Months, &Days, &Hours, &Minutes, &Seconds)``` |
+| 常見用途 | ‧ 計算到期日<br>‧ 取得指定天數／月數前後的日期 | ‧ 排程作業的開始／結束時間<br>‧ 記錄精確時間差（含秒） |
+| note | ‧ 只能處理 `Date`，不可傳 `DateTime` | ‧ 需完整傳入 7 個參數<br>‧ 適用 `DateTime`，若傳 `Date` 會自動補 00:00:00 |
+
+
+![alt text](7.2_event_06.png)  
+
+
+
+-------
+
+## 7.3 Activity 14: Using PeopleCode Built-In Functions
+
+練習題
+![alt text](7.3_event_01.png)  
+![alt text](7.3_event_02.png)  
+![alt text](7.3_event_03.png)  
+![alt text](7.3_event_04.png)  
+![alt text](7.3_event_05.png)  
+![alt text](7.3_event_06.png)  
+
+
+-------
+
+## 8.1 Writing User-Defined Functions
+
+![alt text](8.1_event_01.png)  
+![alt text](8.1_event_02.png)  
+![alt text](8.1_event_03.png)  
+![alt text](8.1_event_04.png)  
+![alt text](8.1_event_05.png)  
+![alt text](8.1_event_06.png)  
+![alt text](8.1_event_07.png)  
+
+------
+
+## 8.2 Calling User-Defined Functions  
+
+![alt text](8.2_event_01.png)  
+![alt text](8.2_event_02.png)  
+![alt text](8.2_event_03.png)  
+![alt text](8.2_event_04.png)  
+![alt text](8.2_event_05.png)  
+![alt text](8.2_event_06.png)  
+![alt text](8.2_event_07.png)  
+![alt text](8.2_event_08.png)  
+![alt text](8.2_event_09.png)  
+![alt text](8.2_event_10.png)  
+
+------
+
+## 8.3 Activity 15: Writing User-Defined Functions
+
+跟 8.2 非常類似的東西  
+幾乎差不多  
+
+-----
